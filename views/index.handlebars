@@ -1,38 +1,45 @@
-<h1>Burgers!</h1>
+<div class="row">
+  <center>
+    <!-- Left side (ready to eat) -->
+    <div class="col-md-6">
+      <h4 class="red_font">Ready to eat!</h4>
+      <div id="ready_to_eat">
 
-<h2>Ready to eat some burgers?!</h2>
+        <!-- Dynamically Insert Ready Burgers Here -->
+        {{#each burgers}}
+          {{#unless devoured}}
+          <form action="burger/eat/{{id}}" method="POST">
+            <div class="input-group">
+              <li class="form-control">{{id}}. {{burger_name}}</li>
+                <span class="input-group-btn">
+                  <button class="btn btn-success devour-button" type="submit">Devour It!</button>
+                </span>
+            </div>
+          </form>
+          {{/unless}}
+        {{/each}}
 
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+      </div>
+    </div>
 
-<h2></h2>
+    <!-- Right side (already eaten) -->
+    <div class="col-md-6">
+      <h4 class="red_font">Already eaten!</h4>
+      <div id="already_eaten">
 
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+        <!-- Dynamically Insert Eaten Burgers Here -->
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <div class="input-group">
+              <li class="form-control">{{this.id}}. {{this.burger_name}}</li>
+              <span class="input-group-btn">
+                <button class="btn btn-info whine-button" type="button">Whine!</button>
+              </span>
+            </div>
+          {{/if}}
+        {{/each}}
 
-<h2>Add a burger!</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ba">Burger Name:</label>
-    <input type="text" id="ba" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="devoured" value="1" checked> burger ready!<br>
-    <input type="radio" name="devoured" value="0"> devoured
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+      </div>
+    </div>
+  </center>
+</div>
