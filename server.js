@@ -20,7 +20,7 @@ app.use('/', router)
 
 // Open Server
 
-app.listen( PORT, () => {
+app.listen( process.env.PORT || 3000, () => {
     // Log (server-side) when our server has started
     console.log("App is listening on" + PORT);
   });
