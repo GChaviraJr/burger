@@ -5,7 +5,7 @@ const router = express.Router()
 // Create routes
 // ----------------------------------------------------
 // Index Redirect
-router.get('https://git.heroku.com/intense-anchorage-97996.git', (req, res) => {
+router.get('/', (req, res) => {
     res.redirect('/index')
   })
   
