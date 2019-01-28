@@ -5,14 +5,14 @@ const connection;
 if (process.env.JAWSDB_URL) {
   conection = mysql.createConnection(process.env.JAWSDB_URL)
 } else {
-
-}
-  connection = mysql.createConnection({
+connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'Sb1598951',
   database: 'burgers_db'
 })
+}
+  
 
 
 connection.connect(function(err) {
