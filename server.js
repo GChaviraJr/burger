@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
-app.use('/', router)
+app.use('https://git.heroku.com/intense-anchorage-97996.git', router)
 
 // Open Server
 
